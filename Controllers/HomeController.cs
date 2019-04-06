@@ -10,6 +10,7 @@ namespace app.Controllers
 {
     public class HomeController : Controller
     {
+        //[Route("{action}")]
         public IActionResult Index()
         {
             return View();
@@ -24,6 +25,26 @@ namespace app.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult Photos()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IActionResult Bio()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IActionResult Blog()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IActionResult Contacts()
+        {
+            throw new NotImplementedException();
         }
     }
 }
