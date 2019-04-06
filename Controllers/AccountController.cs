@@ -21,8 +21,9 @@ namespace app.Controllers
             db = context;
         }
         [HttpGet]
-        public IActionResult Login()
+        public IActionResult Login(string returnUrl)
         {
+            ViewBag.ReturnUrl = returnUrl;
             return View();
         }
         [HttpPost]
@@ -35,6 +36,9 @@ namespace app.Controllers
                 if (user != null)
                 {
                     await Authenticate(model.Email); // аутентификация
+
+                    if (Url.IsLocalUrl(model.ReturnUrl))
+                        return Redirect(model.ReturnUrl);
 
                     return RedirectToAction("Index", "Home");
                 }
