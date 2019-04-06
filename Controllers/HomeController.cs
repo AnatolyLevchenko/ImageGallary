@@ -10,7 +10,7 @@ namespace app.Controllers
 {
     public class HomeController : Controller
     {
-        //[Route("{action}")]
+        [Route("")]
         public IActionResult Index()
         {
             return View();
